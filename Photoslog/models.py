@@ -47,9 +47,9 @@ class Category(models.Model):
 class Image(models.Model):
     name = models.CharField(max_length=30)
     description = models.CharField(max_length=100)
-    Image = models.ImageField(upload_to='uploads/')
-    Image_location = models.ForeignKey('Location')
-    Image_category = models.ForeignKey('Category')
+    Image = models.ImageField(upload_to='photos/')
+    Image_location = models.ForeignKey('Location', on_delete=models.CASCADE)
+    Image_category = models.ForeignKey('Category', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -63,6 +63,27 @@ class Image(models.Model):
     def delete_image(self):
         self.delete()
 
+    
     @classmethod
-    def update_image(cls, id, name, description, Image_location, Image_category):
-        update = cls.objects.filter(id=id).update(name = name, description = description, Image_category = Image_category, Image_location = Image_location )
+    def update_image(cls, id ,name, description , Image_location, Image_category):
+        update = cls.objects.filter(id = id).update(name = name, description = description ,Image_location = Image_location,Image_category = Image_category)
+        
+    #return update
+    @classmethod
+    def get_all_images(cls):
+        images = cls.objects.all()
+        return images
+    @classmethod
+    def get_image_by_id(cls, id):
+        images = Image.objects.filter(id=id).all()
+        return images
+    @classmethod
+    def search_by_category(cls,Image_category):
+        images = Image.objects.filter(Image_category__name__icontains=Image_category)
+        return images
+    @classmethod
+    def filter_by_location(cls, Image_location):
+
+        images_location = cls.objects.filter(Image_location__id=Image_location)
+        return images_location
+         

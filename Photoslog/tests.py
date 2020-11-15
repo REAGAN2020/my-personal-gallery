@@ -1,12 +1,12 @@
 from django.test import TestCase
-from .models import Location,Category
+from .models import Location,Category,Image
 
 # Create your tests here.
 
 class LocationTestClass(TestCase):
     #Setup Method
     def setUp(self):
-        self.loc = Location(name="Nairobi")
+        self.loc = Location(name="America")
         self.loc.save_location()
     
     def test_instance(self):
@@ -54,4 +54,50 @@ class CategoryTestClass(TestCase):
         category.update_category('Fashion')
         category = Category.get_category_id(self.teflon.id)
         self.assertTrue(category.name == 'Fashion')
+
+class ImageTestClass(TestCase):
+    #set up Method
+    def setUp(self):
+        self.loc = Location(name='America')
+        self.loc.save_location()
+
+        self.teflon = Category(name='designs')
+        self.teflon.save_category()
+
+        self.image = Image(name='image test', description='reagan test', Image_location=self.loc, Image_category=self.teflon)
+        self.image.save_image()
+    def test_instance(self):
+        self.assertTrue(isinstance(self.image, Image))
+
+
+    def test_update_image(self):
+        self.image.save_image()
+        image = Image.update_image( self.image.id, 'test update', 'my test',self.loc, self.teflon)
+        upimage = Image.objects.filter(id = self.image.id)
+        print(upimage)
+        self.assertTrue(len(upimage) > 0)    
+
+    def test_get_all_images(self):
+        images = Image.get_all_images()
+        self.assertTrue(len(images) > 0)
     
+    def test_get_image_by_id(self):
+        images= Image.get_image_by_id(self.image.id)
+        self.assertTrue(len(images) == 1)
+
+    def test_search_by_category(self):
+        images = Image.search_by_category('designs')
+        self.assertTrue(len(images) > 0)
+
+    def test_filter_by_location(self):
+        images = Image.filter_by_location('1')
+        print(images)
+        self.assertTrue(len(images) > 0)
+
+    def tearDown(self):
+        self.image.delete_image()
+        self.teflon.delete_category()
+        self.loc.delete_location()
+        
+
+       
