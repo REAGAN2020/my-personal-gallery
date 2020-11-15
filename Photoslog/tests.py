@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Location
+from .models import Location,Category
 
 # Create your tests here.
 
@@ -32,11 +32,11 @@ class LocationTestClass(TestCase):
 class CategoryTestClass(TestCase):
     #setup Method
     def setUp(self):
-        self.teflon = Category(name="food")
+        self.teflon = Category(name="designs")
         self.teflon.save_category()
 
     def test_instance(self):
-        self.assertTrue(isinstance(self.teflon.Category))
+        self.assertTrue(isinstance(self.teflon, Category))
 
     def test_save_method(self):
         self.teflon.save_category()
@@ -46,7 +46,12 @@ class CategoryTestClass(TestCase):
     def test_delete_method(self):
         self.teflon.save_category()
         self.teflon.delete_category()
-        category = Categry.objects.all()
+        category = Category.objects.all()
         self.assertTrue(len(category) == 0)
-    
+
+    def test_update(self):
+        category = Category.get_category_id(self.teflon.id)
+        category.update_category('Fashion')
+        category = Category.get_category_id(self.teflon.id)
+        self.assertTrue(category.name == 'Fashion')
     

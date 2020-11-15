@@ -25,7 +25,10 @@ class Location(models.Model):
         return location
 
 class Category(models.Model):
-    fname = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
+    @classmethod
+    def __str__(self):
+        return self.name
 
     def save_category(self):
         self.save()
@@ -36,3 +39,8 @@ class Category(models.Model):
     def update_category(self, update):
         self.name = update
         self.save()
+
+    @classmethod
+    def get_category_id(cls, id):
+        category = Category.objects.get(pk = id)
+        return category
