@@ -44,3 +44,7 @@ class Category(models.Model):
     def get_category_id(cls, id):
         category = Category.objects.get(pk = id)
         return category
+class Image(models.Model):
+    name = models.CharField(max_length=30)
+    description = models.CharField(max_length=100)
+    Image = models.ImageField()
