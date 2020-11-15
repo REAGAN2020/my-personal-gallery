@@ -47,4 +47,22 @@ class Category(models.Model):
 class Image(models.Model):
     name = models.CharField(max_length=30)
     description = models.CharField(max_length=100)
-    Image = models.ImageField()
+    Image = models.ImageField(upload_to='uploads/')
+    Image_location = models.ForeignKey('Location')
+    Image_category = models.ForeignKey('Category')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['name']
+
+    def save_image(self):
+        self.save()
+
+    def delete_image(self):
+        self.delete()
+
+    @classmethod
+    def update_image(cls, id, name, description, Image_location, Image_category):
+        update = cls.objects.filter(id=id).update(name = name, description = description, Image_category = Image_category, Image_location = Image_location )
