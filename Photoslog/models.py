@@ -7,6 +7,7 @@ class Location(models.Model):
     @classmethod
     def __str__(cls):
         return self.name
+    
 
     def save_location(self):
         self.save()
@@ -22,3 +23,16 @@ class Location(models.Model):
     def get_location_id(cls, id):
         location = Location.objects.get(pk = id)
         return location
+
+class Category(models.Model):
+    fname = models.CharField(max_length=50)
+
+    def save_category(self):
+        self.save()
+
+    def delete_category(self):
+        self.delete()
+    
+    def update_category(self, update):
+        self.name = update
+        self.save()

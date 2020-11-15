@@ -28,3 +28,25 @@ class LocationTestClass(TestCase):
         location.update_location('Nairobi')
         location  = Location.get_location_id(self.loc.id)
         self.assertTrue(location.name == 'Nairobi')
+
+class CategoryTestClass(TestCase):
+    #setup Method
+    def setUp(self):
+        self.teflon = Category(name="food")
+        self.teflon.save_category()
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.teflon.Category))
+
+    def test_save_method(self):
+        self.teflon.save_category()
+        category = Category.objects.all()
+        self.assertTrue(len(category) > 0)
+
+    def test_delete_method(self):
+        self.teflon.save_category()
+        self.teflon.delete_category()
+        category = Categry.objects.all()
+        self.assertTrue(len(category) == 0)
+    
+    
