@@ -67,7 +67,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body reg">
                     <div class="row">
                         <div class="col-md-9 col-lg-9">
                             <a href="{% url 'single_image' category_name=image.Image_category.name image_id=image.id %}"><img
@@ -86,7 +86,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer reg">
                     <!-- <input class="form-control" type="text" value="{{image.image_link}}" id="link"> -->
                     <button type="button" class="btn btn-secondary" onclick="copy('img{{image.id}}')">Copy Link</button>
                     <!-- <a onclick="myFunction()"><button type="button"  class="btn btn-primary">Copy Link</button></a> -->
