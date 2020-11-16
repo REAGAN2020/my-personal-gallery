@@ -86,7 +86,7 @@ body {
     z-index: 1050;
     top: 0;
     right: 0;
-    background-color: #000;
+    background-color: rgb(95, 25, 25);
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 40px;
@@ -96,7 +96,7 @@ body {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 18px;
-    color: #818181;
+    color: #ffffff;
     display: block;
     transition: 0.3s;
 
@@ -365,7 +365,7 @@ div.col-xs-6.col-sm-6.col-md-4.col-lg-3 {
     position: relative;
     font-size: 15px;
     background-color: transparent;
-    color: #44c7f4;
+    color: #7e0a0af3;
     margin-top: 2em;
     padding: 2em 2em;
     opacity: 0;
