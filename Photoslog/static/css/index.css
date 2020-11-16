@@ -12,7 +12,7 @@ body {
         height: 62px;
     }
 
-    nav.navbar.navbar-expand-lg.navbar-light {
+    nav.navbar.navbar-expand-lg.navbar-dark {
         height: 80px;
         font-size: 14px;
         padding: 10px 18px;
@@ -27,6 +27,10 @@ body {
     div#navbarNav.collapse.navbar-collapse {
         width: 100%;
     }
+    #navMain{
+        background-color: rgb(49, 18, 18)
+    }
+
 
     ul.navbar-nav {
         padding-left: 240px;
@@ -239,14 +243,34 @@ div.container.imageloc {
 }
 
 .banner-1 {
-    background: url(../images/) no-repeat 0px 0px;
+    background: url(../images/image1.jpeg) no-repeat 0px 0px;
     background-size: cover;
     background-position: center;
     -webkit-background-size: cover;
     -o-background-size: cover;
     -ms-background-size: cover;
     -moz-background-size: cover;
-    min-height: 250px;
+    min-height: 300px;
+}
+.banner-2 {
+    background: url(../images/image2.jpeg) no-repeat 0px 0px;
+    background-size: cover;
+    background-position: center;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    -moz-background-size: cover;
+    min-height: 300px;
+}
+.banner-3 {
+    background: url(../images/image3a.jpeg) no-repeat 0px 0px;
+    background-size: cover;
+    background-position: center;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    -moz-background-size: cover;
+    min-height: 300px;
 }
 
 .banner a {
@@ -319,7 +343,7 @@ div.col-xs-6.col-sm-6.col-md-4.col-lg-3 {
     text-align: center;
 }
 
-.hovereffect .overlay {
+/* .hovereffect .overlay {
     position: absolute;
     overflow: hidden;
     width: 80%;
@@ -333,7 +357,7 @@ div.col-xs-6.col-sm-6.col-md-4.col-lg-3 {
     -webkit-transform: scale(0, 1);
     -ms-transform: scale(0, 1);
     transform: scale(0, 1);
-}
+} */
 
 .hovereffect:hover .overlay {
     opacity: 1;
@@ -352,22 +376,22 @@ div.col-xs-6.col-sm-6.col-md-4.col-lg-3 {
 }
 
 .hovereffect:hover img {
-    filter: brightness(0.1);
-    -webkit-filter: brightness(0.1);
-    -moz-filter: brightness(0.1);
-    -o-filter: brightness(0.1);
-    -ms-filter: brightness(0.1);
+    filter: brightness(0.2);
+    -webkit-filter: brightness(0.2);
+    -moz-filter: brightness(0.2);
+    -o-filter: brightness(0.2);
+    -ms-filter: brightness(0.2);
 }
 
 .hovereffect h4 {
     text-transform: uppercase;
     text-align: center;
     position: relative;
-    font-size: 15px;
+    font-size: 26px;
     background-color: transparent;
     color: #7e0a0af3;
-    margin-top: 2em;
-    padding: 2em 2em;
+    /* margin-top: 2em; */
+    /* padding: 2em 2em; */
     opacity: 0;
     filter: alpha(opacity=0);
     -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
