@@ -17,8 +17,7 @@ Owiti Reagan
 
 ## live link
 - live: https://photoslog1.herokuapp.com/
-## sceenshot
-![landing](./static/photoslog.png)
+
 
 ## Behaviour Driven Development
 
