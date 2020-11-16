@@ -29,7 +29,7 @@ body {
         width: 100%;
     }
     #navMain{
-        background-color: rgb(196, 129, 43)
+        background-color: rgb(196, 129, 43);
     }
 
 
@@ -429,6 +429,9 @@ h2,
 p.desc {
     padding-top: 10px;
     padding-left: 30px;
+}
+.reg{
+    background-color:rgb(196, 129, 43);
 }
 
 div.modal-dialog {

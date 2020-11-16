@@ -69,9 +69,10 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-9 col-lg-9">
-                            <a href="{% url 'single_image' category_name=image.Image_category.name image_id=image.id %}"><img id="img{{image.id}}"
-                                    src="{{image.Image.url}}" class="img-thumbnail" alt="Image" style="cursor:pointer"></a>
-                        
+                            <a href="{% url 'single_image' category_name=image.Image_category.name image_id=image.id %}"><img
+                                    id="img{{image.id}}" src="{{image.Image.url}}" class="img-thumbnail" alt="Image"
+                                    style="cursor:pointer"></a>
+    
                         </div>
                         <div class="col-md-3">
                             <h4 class="desc">Location</h4>
@@ -87,8 +88,6 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" onclick="copy('img{{image.id}}')">Copy Link</button>
-                    <!-- <input class="form-control" type="text" value="{{image.image_link}}" id="link">
-                       <a onclick="myFunction()"><button type="button"  class="btn btn-primary">Copy Link</button></a> -->
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -96,43 +95,6 @@
     </div>
     {% endfor %}
 </div>
-<!-- <div class="container">
-    <div class="row">
-        {% for image in images %}
-        <div class="col-md-4 m-3"> -->
 
-
-            <!-- Button trigger modal -->
-            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalPopovers">
-                Launch demo modal
-            </button> -->
-            <!-- <img class="img-fluid" src="{{image.Image.url}}" alt="" data-toggle="modal"
-                data-target="#id{{image.id}}">
-            <div id="id{{image.id}}" class="modal fade" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalPopoversLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalPopoversLabel">{{image.name}}</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <img class="img-fluid" src="{{image.Image.url}}" alt="">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-
-        </div>
-    </div>
-
-</div> -->
 
 {% endblock %}
