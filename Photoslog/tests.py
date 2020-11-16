@@ -86,8 +86,9 @@ class ImageTestClass(TestCase):
         self.assertTrue(len(images) == 1)
 
     def test_search_by_category(self):
-        images = Image.search_by_category('designs')
-        self.assertTrue(len(images) > 0)
+        found_img = self.image.search_by_category(self.teflon)
+        image = Image.objects.all()
+        self.assertTrue(found_img, image)
 
     def test_filter_by_location(self):
         images = Image.filter_by_location('1')

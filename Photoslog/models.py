@@ -4,8 +4,8 @@ import datetime as dt
 
 class Location(models.Model):
     name = models.CharField(max_length=50)
-    @classmethod
-    def __str__(cls):
+
+    def __str__(self):
         return self.name
     
 
@@ -26,7 +26,7 @@ class Location(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
-    @classmethod
+    
     def __str__(self):
         return self.name
 
@@ -51,8 +51,7 @@ class Image(models.Model):
     Image_location = models.ForeignKey('Location', on_delete=models.CASCADE)
     Image_category = models.ForeignKey('Category', on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.name
+    
 
     class Meta:
         ordering = ['name']
@@ -78,8 +77,8 @@ class Image(models.Model):
         images = Image.objects.filter(id=id).all()
         return images
     @classmethod
-    def search_by_category(cls,Image_category):
-        images = Image.objects.filter(Image_category__name__icontains=Image_category)
+    def search_by_category(cls,search_term):
+        images = cls.objects.filter(Image_category__name__icontains=search_term)
         return images
     @classmethod
     def filter_by_location(cls, Image_location):
@@ -87,3 +86,6 @@ class Image(models.Model):
         images_location = cls.objects.filter(Image_location__id=Image_location)
         return images_location
          
+    def __str__(self):
+
+        return self.name
